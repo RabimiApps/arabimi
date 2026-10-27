@@ -52,7 +52,7 @@ jobs:
         with:
           tag: v${{ env.VERSION_CODE }}
           name: JavaSkinChanger Release - ${{ env.VERSION_NAME }}
-          artifacts: output/JavaSkinChanger-latest.apk
+          artifacts: output/*.apk
           allowUpdates: true
           release: true
           
