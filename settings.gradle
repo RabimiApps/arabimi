@@ -16,5 +16,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "JavaSkinChanger"
+rootProject.name = "dadaad"
 include(":app")
