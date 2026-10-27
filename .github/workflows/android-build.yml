@@ -52,7 +52,7 @@ jobs:
         with:
           tag: v${{ env.VERSION_CODE }}
           name: ABCDEFG Release - ${{ env.VERSION_NAME }}
-          artifacts: output/*.apk
+          artifacts: app/build/outputs/apk/release/*.apk
           allowUpdates: true
           release: true
           
