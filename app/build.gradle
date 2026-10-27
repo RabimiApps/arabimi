@@ -1,79 +1,24 @@
 plugins {
     id 'com.android.application'
-    id 'kotlin-android'
-    id 'kotlin-kapt'
+    id 'org.jetbrains.kotlin.android'
 }
 
 android {
-    namespace 'com.rabimi.javaskinchanger'
-    compileSdk 35
+    namespace 'com.rabimi.dadaad'
+    compileSdk 34
 
     defaultConfig {
-        applicationId "com.rabimi.javaskinchanger"
-        minSdk 21
+        applicationId "com.rabimi.dadaad"
+        minSdk 26
         targetSdk 34
-
-        versionCode project.hasProperty("versionCode") ? project.versionCode.toInteger() : 1
-        versionName project.hasProperty("versionName") ? project.versionName : "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
-        manifestPlaceholders = [appAuthRedirectScheme: "javaskinchanger"]
-
-        ndk {
-            abiFilters "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
-        }
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-        debug { minifyEnabled false }
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
-    }
-
-    kotlinOptions { jvmTarget = '17' }
-
-    packagingOptions {
-        pickFirst "**/*.so"
+        versionCode 1
+        versionName "1.0"
     }
 }
 
 dependencies {
-    implementation "androidx.core:core:1.15.0"
-    implementation "androidx.core:core-ktx:1.15.0"
-    implementation "androidx.appcompat:appcompat:1.7.0"
-    implementation "com.google.android.material:material:1.11.0"
-    implementation "androidx.constraintlayout:constraintlayout:2.1.4"
-    implementation "androidx.browser:browser:1.6.0"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.0"
-
-    // Glide
-    implementation "com.github.bumptech.glide:glide:4.16.0"
-    kapt "com.github.bumptech.glide:compiler:4.16.0"
-
-    // AppAuth
-    implementation "net.openid:appauth:0.11.1"
-
-    // Testing
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.6'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-}
-
-configurations.all {
-    resolutionStrategy {
-        eachDependency { details ->
-            if (details.requested.group == "androidx.core" &&
-                (details.requested.name == "core" || details.requested.name == "core-ktx")) {
-                details.useVersion "1.15.0"
-            }
-        }
-    }
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.11.0'
+    implementation "androidx.work:work-runtime-ktx:2.9.0"
 }
